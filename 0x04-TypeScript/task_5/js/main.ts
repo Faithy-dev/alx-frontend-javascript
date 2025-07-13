@@ -1,34 +1,36 @@
-// Define branded types using interfaces
-interface MajorCredits {
+// Define MajorCredits interface
+export interface MajorCredits {
   credits: number;
   brand: 'Major';
 }
 
-interface MinorCredits {
+// Define MinorCredits interface
+export interface MinorCredits {
   credits: number;
   brand: 'Minor';
 }
 
-// Sum function for MajorCredits
-function sumMajorCredits(subject1: MajorCredits, subject2: MajorCredits): MajorCredits {
+// Function to sum MajorCredits
+export function sumMajorCredits(subject1: MajorCredits, subject2: MajorCredits): MajorCredits {
   return {
     credits: subject1.credits + subject2.credits,
-    brand: 'Major',
+    brand: 'Major'
   };
 }
 
-// Sum function for MinorCredits
-function sumMinorCredits(subject1: MinorCredits, subject2: MinorCredits): MinorCredits {
+// Function to sum MinorCredits
+export function sumMinorCredits(subject1: MinorCredits, subject2: MinorCredits): MinorCredits {
   return {
     credits: subject1.credits + subject2.credits,
-    brand: 'Minor',
+    brand: 'Minor'
   };
 }
 
-// Export interfaces and functions if needed elsewhere
-export {
-  MajorCredits,
-  MinorCredits,
-  sumMajorCredits,
-  sumMinorCredits,
-};
+// Test (optional)
+const major1: MajorCredits = { credits: 3, brand: 'Major' };
+const major2: MajorCredits = { credits: 4, brand: 'Major' };
+console.log('Sum of MajorCredits:', sumMajorCredits(major1, major2));
+
+const minor1: MinorCredits = { credits: 2, brand: 'Minor' };
+const minor2: MinorCredits = { credits: 5, brand: 'Minor' };
+console.log('Sum of MinorCredits:', sumMinorCredits(minor1, minor2));
